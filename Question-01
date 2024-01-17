@@ -43,3 +43,5 @@ counter++;
 }
 return totalRain;
 }
+
+/// Output - There was no rain during this period. ///
