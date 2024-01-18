@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+int main() {
+    int rows;
+    printf("Enter the number of rows\n");
+    scanf("%d", &rows);
+    int asterisks = 0, whitespaces = 0; // to check if it's displaying the correct number of asterisks and white spaces
+    int spacesBetweenAsterisks = 1;
+
+    // First part of the pattern
+    for (int i = -1; i <= rows; i++) {
+        for (int j = rows; j > i; j--) {
+            printf(" ");
+        }
+        printf("*");
+        asterisks++;
+
+        if (i > 0) {
+            for (int k = 1; k <= spacesBetweenAsterisks; k++) {
+                printf(" ");
+                whitespaces++;
+            }
+            spacesBetweenAsterisks += 2;
+            printf("*");
+            asterisks++;
+        }
+
+        printf("      ASTERISKS = %d and WHITESPACES = %d\n", asterisks, whitespaces);
+        asterisks = 0;
+        whitespaces = 0;
+    }
+
+    spacesBetweenAsterisks = spacesBetweenAsterisks - 4;
+
+    // Second part of the pattern
+    for (int i = 0; i <= rows - 1; i++) {
+        for (int j = 0; j <= i; j++) {
+            printf(" ");
+        }
+        printf("*");
+
+        for (int k = 1; k <= spacesBetweenAsterisks; k++) {
+            printf(" ");
+        }
+
+        spacesBetweenAsterisks -= 2;
+
+        if (i != rows - 1) {
+            printf("*");
+            asterisks++;
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
